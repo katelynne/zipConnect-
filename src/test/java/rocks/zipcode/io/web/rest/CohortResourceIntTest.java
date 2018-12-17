@@ -39,9 +39,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ZipConnectApp.class)
 public class CohortResourceIntTest {
 
-    private static final Double DEFAULT_COHORT_ID = 1D;
-    private static final Double UPDATED_COHORT_ID = 2D;
-
     private static final String DEFAULT_GRAD_DATE = "AAAAAAAAAA";
     private static final String UPDATED_GRAD_DATE = "BBBBBBBBBB";
 
@@ -83,7 +80,6 @@ public class CohortResourceIntTest {
      */
     public static Cohort createEntity(EntityManager em) {
         Cohort cohort = new Cohort()
-            .cohortId(DEFAULT_COHORT_ID)
             .gradDate(DEFAULT_GRAD_DATE);
         return cohort;
     }
@@ -108,7 +104,6 @@ public class CohortResourceIntTest {
         List<Cohort> cohortList = cohortRepository.findAll();
         assertThat(cohortList).hasSize(databaseSizeBeforeCreate + 1);
         Cohort testCohort = cohortList.get(cohortList.size() - 1);
-        assertThat(testCohort.getCohortId()).isEqualTo(DEFAULT_COHORT_ID);
         assertThat(testCohort.getGradDate()).isEqualTo(DEFAULT_GRAD_DATE);
     }
 
@@ -142,7 +137,6 @@ public class CohortResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(cohort.getId().intValue())))
-            .andExpect(jsonPath("$.[*].cohortId").value(hasItem(DEFAULT_COHORT_ID.doubleValue())))
             .andExpect(jsonPath("$.[*].gradDate").value(hasItem(DEFAULT_GRAD_DATE.toString())));
     }
     
@@ -157,7 +151,6 @@ public class CohortResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(cohort.getId().intValue()))
-            .andExpect(jsonPath("$.cohortId").value(DEFAULT_COHORT_ID.doubleValue()))
             .andExpect(jsonPath("$.gradDate").value(DEFAULT_GRAD_DATE.toString()));
     }
 
@@ -182,7 +175,6 @@ public class CohortResourceIntTest {
         // Disconnect from session so that the updates on updatedCohort are not directly saved in db
         em.detach(updatedCohort);
         updatedCohort
-            .cohortId(UPDATED_COHORT_ID)
             .gradDate(UPDATED_GRAD_DATE);
 
         restCohortMockMvc.perform(put("/api/cohorts")
@@ -194,7 +186,6 @@ public class CohortResourceIntTest {
         List<Cohort> cohortList = cohortRepository.findAll();
         assertThat(cohortList).hasSize(databaseSizeBeforeUpdate);
         Cohort testCohort = cohortList.get(cohortList.size() - 1);
-        assertThat(testCohort.getCohortId()).isEqualTo(UPDATED_COHORT_ID);
         assertThat(testCohort.getGradDate()).isEqualTo(UPDATED_GRAD_DATE);
     }
 

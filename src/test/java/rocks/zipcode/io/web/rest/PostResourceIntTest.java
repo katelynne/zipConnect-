@@ -41,9 +41,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ZipConnectApp.class)
 public class PostResourceIntTest {
 
-    private static final Long DEFAULT_POST_ID = 1L;
-    private static final Long UPDATED_POST_ID = 2L;
-
     private static final LocalDate DEFAULT_TIMESTAMP = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_TIMESTAMP = LocalDate.now(ZoneId.systemDefault());
 
@@ -91,7 +88,6 @@ public class PostResourceIntTest {
      */
     public static Post createEntity(EntityManager em) {
         Post post = new Post()
-            .postId(DEFAULT_POST_ID)
             .timestamp(DEFAULT_TIMESTAMP)
             .content(DEFAULT_CONTENT)
             .likes(DEFAULT_LIKES);
@@ -118,7 +114,6 @@ public class PostResourceIntTest {
         List<Post> postList = postRepository.findAll();
         assertThat(postList).hasSize(databaseSizeBeforeCreate + 1);
         Post testPost = postList.get(postList.size() - 1);
-        assertThat(testPost.getPostId()).isEqualTo(DEFAULT_POST_ID);
         assertThat(testPost.getTimestamp()).isEqualTo(DEFAULT_TIMESTAMP);
         assertThat(testPost.getContent()).isEqualTo(DEFAULT_CONTENT);
         assertThat(testPost.getLikes()).isEqualTo(DEFAULT_LIKES);
@@ -154,7 +149,6 @@ public class PostResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(post.getId().intValue())))
-            .andExpect(jsonPath("$.[*].postId").value(hasItem(DEFAULT_POST_ID.intValue())))
             .andExpect(jsonPath("$.[*].timestamp").value(hasItem(DEFAULT_TIMESTAMP.toString())))
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT.toString())))
             .andExpect(jsonPath("$.[*].likes").value(hasItem(DEFAULT_LIKES.toString())));
@@ -171,7 +165,6 @@ public class PostResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(post.getId().intValue()))
-            .andExpect(jsonPath("$.postId").value(DEFAULT_POST_ID.intValue()))
             .andExpect(jsonPath("$.timestamp").value(DEFAULT_TIMESTAMP.toString()))
             .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT.toString()))
             .andExpect(jsonPath("$.likes").value(DEFAULT_LIKES.toString()));
@@ -198,7 +191,6 @@ public class PostResourceIntTest {
         // Disconnect from session so that the updates on updatedPost are not directly saved in db
         em.detach(updatedPost);
         updatedPost
-            .postId(UPDATED_POST_ID)
             .timestamp(UPDATED_TIMESTAMP)
             .content(UPDATED_CONTENT)
             .likes(UPDATED_LIKES);
@@ -212,7 +204,6 @@ public class PostResourceIntTest {
         List<Post> postList = postRepository.findAll();
         assertThat(postList).hasSize(databaseSizeBeforeUpdate);
         Post testPost = postList.get(postList.size() - 1);
-        assertThat(testPost.getPostId()).isEqualTo(UPDATED_POST_ID);
         assertThat(testPost.getTimestamp()).isEqualTo(UPDATED_TIMESTAMP);
         assertThat(testPost.getContent()).isEqualTo(UPDATED_CONTENT);
         assertThat(testPost.getLikes()).isEqualTo(UPDATED_LIKES);

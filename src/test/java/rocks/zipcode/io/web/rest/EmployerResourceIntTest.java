@@ -39,9 +39,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ZipConnectApp.class)
 public class EmployerResourceIntTest {
 
-    private static final Long DEFAULT_EMPLOYER_ID = 1L;
-    private static final Long UPDATED_EMPLOYER_ID = 2L;
-
     private static final String DEFAULT_COMPANY_NAME = "AAAAAAAAAA";
     private static final String UPDATED_COMPANY_NAME = "BBBBBBBBBB";
 
@@ -89,7 +86,6 @@ public class EmployerResourceIntTest {
      */
     public static Employer createEntity(EntityManager em) {
         Employer employer = new Employer()
-            .employerId(DEFAULT_EMPLOYER_ID)
             .companyName(DEFAULT_COMPANY_NAME)
             .city(DEFAULT_CITY)
             .state(DEFAULT_STATE);
@@ -116,7 +112,6 @@ public class EmployerResourceIntTest {
         List<Employer> employerList = employerRepository.findAll();
         assertThat(employerList).hasSize(databaseSizeBeforeCreate + 1);
         Employer testEmployer = employerList.get(employerList.size() - 1);
-        assertThat(testEmployer.getEmployerId()).isEqualTo(DEFAULT_EMPLOYER_ID);
         assertThat(testEmployer.getCompanyName()).isEqualTo(DEFAULT_COMPANY_NAME);
         assertThat(testEmployer.getCity()).isEqualTo(DEFAULT_CITY);
         assertThat(testEmployer.getState()).isEqualTo(DEFAULT_STATE);
@@ -152,7 +147,6 @@ public class EmployerResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(employer.getId().intValue())))
-            .andExpect(jsonPath("$.[*].employerId").value(hasItem(DEFAULT_EMPLOYER_ID.intValue())))
             .andExpect(jsonPath("$.[*].companyName").value(hasItem(DEFAULT_COMPANY_NAME.toString())))
             .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY.toString())))
             .andExpect(jsonPath("$.[*].state").value(hasItem(DEFAULT_STATE.toString())));
@@ -169,7 +163,6 @@ public class EmployerResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(employer.getId().intValue()))
-            .andExpect(jsonPath("$.employerId").value(DEFAULT_EMPLOYER_ID.intValue()))
             .andExpect(jsonPath("$.companyName").value(DEFAULT_COMPANY_NAME.toString()))
             .andExpect(jsonPath("$.city").value(DEFAULT_CITY.toString()))
             .andExpect(jsonPath("$.state").value(DEFAULT_STATE.toString()));
@@ -196,7 +189,6 @@ public class EmployerResourceIntTest {
         // Disconnect from session so that the updates on updatedEmployer are not directly saved in db
         em.detach(updatedEmployer);
         updatedEmployer
-            .employerId(UPDATED_EMPLOYER_ID)
             .companyName(UPDATED_COMPANY_NAME)
             .city(UPDATED_CITY)
             .state(UPDATED_STATE);
@@ -210,7 +202,6 @@ public class EmployerResourceIntTest {
         List<Employer> employerList = employerRepository.findAll();
         assertThat(employerList).hasSize(databaseSizeBeforeUpdate);
         Employer testEmployer = employerList.get(employerList.size() - 1);
-        assertThat(testEmployer.getEmployerId()).isEqualTo(UPDATED_EMPLOYER_ID);
         assertThat(testEmployer.getCompanyName()).isEqualTo(UPDATED_COMPANY_NAME);
         assertThat(testEmployer.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testEmployer.getState()).isEqualTo(UPDATED_STATE);

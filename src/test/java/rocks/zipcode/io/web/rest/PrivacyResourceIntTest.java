@@ -39,9 +39,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ZipConnectApp.class)
 public class PrivacyResourceIntTest {
 
-    private static final Long DEFAULT_PRIVACY_ID = 1L;
-    private static final Long UPDATED_PRIVACY_ID = 2L;
-
     private static final Boolean DEFAULT_PUBLIC_VIEW = false;
     private static final Boolean UPDATED_PUBLIC_VIEW = true;
 
@@ -89,7 +86,6 @@ public class PrivacyResourceIntTest {
      */
     public static Privacy createEntity(EntityManager em) {
         Privacy privacy = new Privacy()
-            .privacyId(DEFAULT_PRIVACY_ID)
             .publicView(DEFAULT_PUBLIC_VIEW)
             .cohortView(DEFAULT_COHORT_VIEW)
             .employerView(DEFAULT_EMPLOYER_VIEW);
@@ -116,7 +112,6 @@ public class PrivacyResourceIntTest {
         List<Privacy> privacyList = privacyRepository.findAll();
         assertThat(privacyList).hasSize(databaseSizeBeforeCreate + 1);
         Privacy testPrivacy = privacyList.get(privacyList.size() - 1);
-        assertThat(testPrivacy.getPrivacyId()).isEqualTo(DEFAULT_PRIVACY_ID);
         assertThat(testPrivacy.isPublicView()).isEqualTo(DEFAULT_PUBLIC_VIEW);
         assertThat(testPrivacy.isCohortView()).isEqualTo(DEFAULT_COHORT_VIEW);
         assertThat(testPrivacy.isEmployerView()).isEqualTo(DEFAULT_EMPLOYER_VIEW);
@@ -152,7 +147,6 @@ public class PrivacyResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(privacy.getId().intValue())))
-            .andExpect(jsonPath("$.[*].privacyId").value(hasItem(DEFAULT_PRIVACY_ID.intValue())))
             .andExpect(jsonPath("$.[*].publicView").value(hasItem(DEFAULT_PUBLIC_VIEW.booleanValue())))
             .andExpect(jsonPath("$.[*].cohortView").value(hasItem(DEFAULT_COHORT_VIEW.booleanValue())))
             .andExpect(jsonPath("$.[*].employerView").value(hasItem(DEFAULT_EMPLOYER_VIEW.booleanValue())));
@@ -169,7 +163,6 @@ public class PrivacyResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(privacy.getId().intValue()))
-            .andExpect(jsonPath("$.privacyId").value(DEFAULT_PRIVACY_ID.intValue()))
             .andExpect(jsonPath("$.publicView").value(DEFAULT_PUBLIC_VIEW.booleanValue()))
             .andExpect(jsonPath("$.cohortView").value(DEFAULT_COHORT_VIEW.booleanValue()))
             .andExpect(jsonPath("$.employerView").value(DEFAULT_EMPLOYER_VIEW.booleanValue()));
@@ -196,7 +189,6 @@ public class PrivacyResourceIntTest {
         // Disconnect from session so that the updates on updatedPrivacy are not directly saved in db
         em.detach(updatedPrivacy);
         updatedPrivacy
-            .privacyId(UPDATED_PRIVACY_ID)
             .publicView(UPDATED_PUBLIC_VIEW)
             .cohortView(UPDATED_COHORT_VIEW)
             .employerView(UPDATED_EMPLOYER_VIEW);
@@ -210,7 +202,6 @@ public class PrivacyResourceIntTest {
         List<Privacy> privacyList = privacyRepository.findAll();
         assertThat(privacyList).hasSize(databaseSizeBeforeUpdate);
         Privacy testPrivacy = privacyList.get(privacyList.size() - 1);
-        assertThat(testPrivacy.getPrivacyId()).isEqualTo(UPDATED_PRIVACY_ID);
         assertThat(testPrivacy.isPublicView()).isEqualTo(UPDATED_PUBLIC_VIEW);
         assertThat(testPrivacy.isCohortView()).isEqualTo(UPDATED_COHORT_VIEW);
         assertThat(testPrivacy.isEmployerView()).isEqualTo(UPDATED_EMPLOYER_VIEW);

@@ -39,9 +39,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = ZipConnectApp.class)
 public class UserProfileResourceIntTest {
 
-    private static final Long DEFAULT_PROFILE_ID = 1L;
-    private static final Long UPDATED_PROFILE_ID = 2L;
-
     private static final String DEFAULT_FIRST_NAME = "AAAAAAAAAA";
     private static final String UPDATED_FIRST_NAME = "BBBBBBBBBB";
 
@@ -89,7 +86,6 @@ public class UserProfileResourceIntTest {
      */
     public static UserProfile createEntity(EntityManager em) {
         UserProfile userProfile = new UserProfile()
-            .profileId(DEFAULT_PROFILE_ID)
             .firstName(DEFAULT_FIRST_NAME)
             .lastName(DEFAULT_LAST_NAME)
             .userStack(DEFAULT_USER_STACK);
@@ -116,7 +112,6 @@ public class UserProfileResourceIntTest {
         List<UserProfile> userProfileList = userProfileRepository.findAll();
         assertThat(userProfileList).hasSize(databaseSizeBeforeCreate + 1);
         UserProfile testUserProfile = userProfileList.get(userProfileList.size() - 1);
-        assertThat(testUserProfile.getProfileId()).isEqualTo(DEFAULT_PROFILE_ID);
         assertThat(testUserProfile.getFirstName()).isEqualTo(DEFAULT_FIRST_NAME);
         assertThat(testUserProfile.getLastName()).isEqualTo(DEFAULT_LAST_NAME);
         assertThat(testUserProfile.getUserStack()).isEqualTo(DEFAULT_USER_STACK);
@@ -152,7 +147,6 @@ public class UserProfileResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(userProfile.getId().intValue())))
-            .andExpect(jsonPath("$.[*].profileId").value(hasItem(DEFAULT_PROFILE_ID.intValue())))
             .andExpect(jsonPath("$.[*].firstName").value(hasItem(DEFAULT_FIRST_NAME.toString())))
             .andExpect(jsonPath("$.[*].lastName").value(hasItem(DEFAULT_LAST_NAME.toString())))
             .andExpect(jsonPath("$.[*].userStack").value(hasItem(DEFAULT_USER_STACK.toString())));
@@ -169,7 +163,6 @@ public class UserProfileResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(userProfile.getId().intValue()))
-            .andExpect(jsonPath("$.profileId").value(DEFAULT_PROFILE_ID.intValue()))
             .andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME.toString()))
             .andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME.toString()))
             .andExpect(jsonPath("$.userStack").value(DEFAULT_USER_STACK.toString()));
@@ -196,7 +189,6 @@ public class UserProfileResourceIntTest {
         // Disconnect from session so that the updates on updatedUserProfile are not directly saved in db
         em.detach(updatedUserProfile);
         updatedUserProfile
-            .profileId(UPDATED_PROFILE_ID)
             .firstName(UPDATED_FIRST_NAME)
             .lastName(UPDATED_LAST_NAME)
             .userStack(UPDATED_USER_STACK);
@@ -210,7 +202,6 @@ public class UserProfileResourceIntTest {
         List<UserProfile> userProfileList = userProfileRepository.findAll();
         assertThat(userProfileList).hasSize(databaseSizeBeforeUpdate);
         UserProfile testUserProfile = userProfileList.get(userProfileList.size() - 1);
-        assertThat(testUserProfile.getProfileId()).isEqualTo(UPDATED_PROFILE_ID);
         assertThat(testUserProfile.getFirstName()).isEqualTo(UPDATED_FIRST_NAME);
         assertThat(testUserProfile.getLastName()).isEqualTo(UPDATED_LAST_NAME);
         assertThat(testUserProfile.getUserStack()).isEqualTo(UPDATED_USER_STACK);
