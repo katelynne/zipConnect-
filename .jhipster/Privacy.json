@@ -1,0 +1,31 @@
+{
+    "name": "Privacy",
+    "fields": [
+        {
+            "fieldName": "privacyId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "publicView",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "cohortView",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "employerView",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181217184616",
+    "entityTableName": "privacy",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

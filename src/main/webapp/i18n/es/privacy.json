@@ -1,0 +1,24 @@
+{
+    "zipConnectApp": {
+        "privacy": {
+            "home": {
+                "title": "Privacies",
+                "createLabel": "Crear nuevo Privacy",
+                "createOrEditLabel": "Crear o editar Privacy"
+            },
+            "created": "Un nuevo Privacy ha sido creado con el identificador {{ param }}",
+            "updated": "Un Privacy ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Privacy ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Privacy {{ id }}?"
+            },
+            "detail": {
+                "title": "Privacy"
+            },
+            "privacyId": "Privacy Id",
+            "publicView": "Public View",
+            "cohortView": "Cohort View",
+            "employerView": "Employer View"
+        }
+    }
+}

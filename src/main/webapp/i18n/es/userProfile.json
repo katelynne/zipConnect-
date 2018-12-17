@@ -1,0 +1,29 @@
+{
+    "zipConnectApp": {
+        "userProfile": {
+            "home": {
+                "title": "User Profiles",
+                "createLabel": "Crear nuevo User Profile",
+                "createOrEditLabel": "Crear o editar User Profile"
+            },
+            "created": "Un nuevo User Profile ha sido creado con el identificador {{ param }}",
+            "updated": "Un User Profile ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un User Profile ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar User Profile {{ id }}?"
+            },
+            "detail": {
+                "title": "User Profile"
+            },
+            "profileId": "Profile Id",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "userStack": "User Stack",
+            "user": "User",
+            "cohort": "Cohort",
+            "employer": "Employer",
+            "employer": "Employer",
+            "cohort": "Cohort"
+        }
+    }
+}

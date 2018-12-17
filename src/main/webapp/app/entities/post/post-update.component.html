@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-post-heading" jhiTranslate="zipConnectApp.post.home.createOrEditLabel">Create or edit a Post</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!post.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="post.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.post.postId" for="field_postId">Post Id</label>
+                    <input type="number" class="form-control" name="postId" id="field_postId"
+                        [(ngModel)]="post.postId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.post.timestamp" for="field_timestamp">Timestamp</label>
+                    <div class="input-group">
+                        <input id="field_timestamp" type="text" class="form-control" name="timestamp" ngbDatepicker  #timestampDp="ngbDatepicker" [(ngModel)]="post.timestamp"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="timestampDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.post.content" for="field_content">Content</label>
+                    <input type="text" class="form-control" name="content" id="field_content"
+                        [(ngModel)]="post.content" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.post.likes" for="field_likes">Likes</label>
+                    <input type="text" class="form-control" name="likes" id="field_likes"
+                        [(ngModel)]="post.likes" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.post.poster" for="field_poster">Poster</label>
+                    <select class="form-control" id="field_poster" name="poster" [(ngModel)]="post.poster" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === post.poster?.id ? post.poster : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.post.privacySetting" for="field_privacySetting">Privacy Setting</label>
+                    <select class="form-control" id="field_privacySetting" name="privacySetting" [(ngModel)]="post.privacySetting">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="privacyOption.id === post.privacySetting?.id ? post.privacySetting : privacyOption" *ngFor="let privacyOption of privacysettings; trackBy: trackPrivacyById">{{privacyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.post.poster" for="field_poster">Poster</label>
+                    <select class="form-control" id="field_poster" name="poster" [(ngModel)]="post.poster" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === post.poster?.id ? post.poster : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

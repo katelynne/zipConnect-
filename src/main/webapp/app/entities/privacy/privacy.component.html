@@ -1,0 +1,60 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="zipConnectApp.privacy.home.title">Privacies</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-privacy" [routerLink]="['/privacy/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="zipConnectApp.privacy.home.createLabel">
+            Create new Privacy
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="privacies">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="zipConnectApp.privacy.privacyId">Privacy Id</span></th>
+            <th><span jhiTranslate="zipConnectApp.privacy.publicView">Public View</span></th>
+            <th><span jhiTranslate="zipConnectApp.privacy.cohortView">Cohort View</span></th>
+            <th><span jhiTranslate="zipConnectApp.privacy.employerView">Employer View</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let privacy of privacies ;trackBy: trackId">
+                <td><a [routerLink]="['/privacy', privacy.id, 'view' ]">{{privacy.id}}</a></td>
+                <td>{{privacy.privacyId}}</td>
+                <td>{{privacy.publicView}}</td>
+                <td>{{privacy.cohortView}}</td>
+                <td>{{privacy.employerView}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/privacy', privacy.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/privacy', privacy.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'privacy/'+ privacy.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-user-profile-heading" jhiTranslate="zipConnectApp.userProfile.home.createOrEditLabel">Create or edit a User Profile</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!userProfile.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="userProfile.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.profileId" for="field_profileId">Profile Id</label>
+                    <input type="number" class="form-control" name="profileId" id="field_profileId"
+                        [(ngModel)]="userProfile.profileId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="userProfile.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="userProfile.lastName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.userStack" for="field_userStack">User Stack</label>
+                    <input type="text" class="form-control" name="userStack" id="field_userStack"
+                        [(ngModel)]="userProfile.userStack" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="userProfile.user" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === userProfile.user?.id ? userProfile.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.cohort" for="field_cohort">Cohort</label>
+                    <select class="form-control" id="field_cohort" name="cohort" [(ngModel)]="userProfile.cohort">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cohortOption.id === userProfile.cohort?.id ? userProfile.cohort : cohortOption" *ngFor="let cohortOption of cohorts; trackBy: trackCohortById">{{cohortOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.employer" for="field_employer">Employer</label>
+                    <select class="form-control" id="field_employer" name="employer" [(ngModel)]="userProfile.employer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employerOption.id === userProfile.employer?.id ? userProfile.employer : employerOption" *ngFor="let employerOption of employers; trackBy: trackEmployerById">{{employerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.employer" for="field_employer">Employer</label>
+                    <select class="form-control" id="field_employer" name="employer" [(ngModel)]="userProfile.employer" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employerOption.id === userProfile.employer?.id ? userProfile.employer : employerOption" *ngFor="let employerOption of employers; trackBy: trackEmployerById">{{employerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.cohort" for="field_cohort">Cohort</label>
+                    <select class="form-control" id="field_cohort" name="cohort" [(ngModel)]="userProfile.cohort" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="cohortOption.id === userProfile.cohort?.id ? userProfile.cohort : cohortOption" *ngFor="let cohortOption of cohorts; trackBy: trackCohortById">{{cohortOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

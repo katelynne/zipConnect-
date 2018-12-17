@@ -1,0 +1,22 @@
+{
+    "zipConnectApp": {
+        "cohort": {
+            "home": {
+                "title": "Cohorts",
+                "createLabel": "Create a new Cohort",
+                "createOrEditLabel": "Create or edit a Cohort"
+            },
+            "created": "A new Cohort is created with identifier {{ param }}",
+            "updated": "A Cohort is updated with identifier {{ param }}",
+            "deleted": "A Cohort is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Cohort {{ id }}?"
+            },
+            "detail": {
+                "title": "Cohort"
+            },
+            "cohortId": "Cohort Id",
+            "gradDate": "Grad Date"
+        }
+    }
+}

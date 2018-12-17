@@ -1,0 +1,24 @@
+{
+    "zipConnectApp": {
+        "employer": {
+            "home": {
+                "title": "Employers",
+                "createLabel": "Crear nuevo Employer",
+                "createOrEditLabel": "Crear o editar Employer"
+            },
+            "created": "Un nuevo Employer ha sido creado con el identificador {{ param }}",
+            "updated": "Un Employer ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Employer ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Employer {{ id }}?"
+            },
+            "detail": {
+                "title": "Employer"
+            },
+            "employerId": "Employer Id",
+            "companyName": "Company Name",
+            "city": "City",
+            "state": "State"
+        }
+    }
+}

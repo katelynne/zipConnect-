@@ -1,0 +1,23 @@
+{
+    "name": "Cohort",
+    "fields": [
+        {
+            "fieldName": "cohortId",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "gradDate",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181217184613",
+    "entityTableName": "cohort",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

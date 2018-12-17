@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="privacy">
+            <h2><span jhiTranslate="zipConnectApp.privacy.detail.title">Privacy</span> {{privacy.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="zipConnectApp.privacy.privacyId">Privacy Id</span></dt>
+                <dd>
+                    <span>{{privacy.privacyId}}</span>
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.privacy.publicView">Public View</span></dt>
+                <dd>
+                    <span>{{privacy.publicView}}</span>
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.privacy.cohortView">Cohort View</span></dt>
+                <dd>
+                    <span>{{privacy.cohortView}}</span>
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.privacy.employerView">Employer View</span></dt>
+                <dd>
+                    <span>{{privacy.employerView}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/privacy', privacy.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

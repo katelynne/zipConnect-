@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="post">
+            <h2><span jhiTranslate="zipConnectApp.post.detail.title">Post</span> {{post.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="zipConnectApp.post.postId">Post Id</span></dt>
+                <dd>
+                    <span>{{post.postId}}</span>
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.post.timestamp">Timestamp</span></dt>
+                <dd>
+                    <span>{{post.timestamp}}</span>
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.post.content">Content</span></dt>
+                <dd>
+                    <span>{{post.content}}</span>
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.post.likes">Likes</span></dt>
+                <dd>
+                    <span>{{post.likes}}</span>
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.post.poster">Poster</span></dt>
+                <dd>
+                    {{post.poster?.id}}
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.post.privacySetting">Privacy Setting</span></dt>
+                <dd>
+                    <div *ngIf="post.privacySetting">
+                        <a [routerLink]="['/privacy', post.privacySetting?.id, 'view']">{{post.privacySetting?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="zipConnectApp.post.poster">Poster</span></dt>
+                <dd>
+                    {{post.poster?.id}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/post', post.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
