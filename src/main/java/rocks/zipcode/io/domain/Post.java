@@ -24,9 +24,6 @@ public class Post implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "post_id")
-    private Long postId;
-
     @Column(name = "jhi_timestamp")
     private LocalDate timestamp;
 
@@ -50,19 +47,6 @@ public class Post implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getPostId() {
-        return postId;
-    }
-
-    public Post postId(Long postId) {
-        this.postId = postId;
-        return this;
-    }
-
-    public void setPostId(Long postId) {
-        this.postId = postId;
     }
 
     public LocalDate getTimestamp() {
@@ -155,7 +139,6 @@ public class Post implements Serializable {
     public String toString() {
         return "Post{" +
             "id=" + getId() +
-            ", postId=" + getPostId() +
             ", timestamp='" + getTimestamp() + "'" +
             ", content='" + getContent() + "'" +
             ", likes='" + getLikes() + "'" +

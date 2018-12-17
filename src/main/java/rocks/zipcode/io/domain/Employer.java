@@ -22,9 +22,6 @@ public class Employer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "employer_id")
-    private Long employerId;
-
     @Column(name = "company_name")
     private String companyName;
 
@@ -41,19 +38,6 @@ public class Employer implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getEmployerId() {
-        return employerId;
-    }
-
-    public Employer employerId(Long employerId) {
-        this.employerId = employerId;
-        return this;
-    }
-
-    public void setEmployerId(Long employerId) {
-        this.employerId = employerId;
     }
 
     public String getCompanyName() {
@@ -120,7 +104,6 @@ public class Employer implements Serializable {
     public String toString() {
         return "Employer{" +
             "id=" + getId() +
-            ", employerId=" + getEmployerId() +
             ", companyName='" + getCompanyName() + "'" +
             ", city='" + getCity() + "'" +
             ", state='" + getState() + "'" +

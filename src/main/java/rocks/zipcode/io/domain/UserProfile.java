@@ -23,9 +23,6 @@ public class UserProfile implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "profile_id")
-    private Long profileId;
-
     @Column(name = "first_name")
     private String firstName;
 
@@ -53,19 +50,6 @@ public class UserProfile implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getProfileId() {
-        return profileId;
-    }
-
-    public UserProfile profileId(Long profileId) {
-        this.profileId = profileId;
-        return this;
-    }
-
-    public void setProfileId(Long profileId) {
-        this.profileId = profileId;
     }
 
     public String getFirstName() {
@@ -170,7 +154,6 @@ public class UserProfile implements Serializable {
     public String toString() {
         return "UserProfile{" +
             "id=" + getId() +
-            ", profileId=" + getProfileId() +
             ", firstName='" + getFirstName() + "'" +
             ", lastName='" + getLastName() + "'" +
             ", userStack='" + getUserStack() + "'" +

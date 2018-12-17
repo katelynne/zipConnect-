@@ -22,9 +22,6 @@ public class Cohort implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "cohort_id")
-    private Double cohortId;
-
     @Column(name = "grad_date")
     private String gradDate;
 
@@ -35,19 +32,6 @@ public class Cohort implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Double getCohortId() {
-        return cohortId;
-    }
-
-    public Cohort cohortId(Double cohortId) {
-        this.cohortId = cohortId;
-        return this;
-    }
-
-    public void setCohortId(Double cohortId) {
-        this.cohortId = cohortId;
     }
 
     public String getGradDate() {
@@ -88,7 +72,6 @@ public class Cohort implements Serializable {
     public String toString() {
         return "Cohort{" +
             "id=" + getId() +
-            ", cohortId=" + getCohortId() +
             ", gradDate='" + getGradDate() + "'" +
             "}";
     }

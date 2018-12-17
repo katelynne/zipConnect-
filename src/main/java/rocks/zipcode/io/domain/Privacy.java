@@ -22,9 +22,6 @@ public class Privacy implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "privacy_id")
-    private Long privacyId;
-
     @Column(name = "public_view")
     private Boolean publicView;
 
@@ -41,19 +38,6 @@ public class Privacy implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getPrivacyId() {
-        return privacyId;
-    }
-
-    public Privacy privacyId(Long privacyId) {
-        this.privacyId = privacyId;
-        return this;
-    }
-
-    public void setPrivacyId(Long privacyId) {
-        this.privacyId = privacyId;
     }
 
     public Boolean isPublicView() {
@@ -120,7 +104,6 @@ public class Privacy implements Serializable {
     public String toString() {
         return "Privacy{" +
             "id=" + getId() +
-            ", privacyId=" + getPrivacyId() +
             ", publicView='" + isPublicView() + "'" +
             ", cohortView='" + isCohortView() + "'" +
             ", employerView='" + isEmployerView() + "'" +
