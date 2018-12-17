@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(UserProfileService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new UserProfile(0, 0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
+            elemDefault = new UserProfile(0, 'AAAAAAA', 'AAAAAAA', 'AAAAAAA');
         });
 
         describe('Service methods', async () => {

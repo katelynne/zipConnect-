@@ -33,8 +33,6 @@ export class UserProfileUpdatePage {
     userSelect = element(by.id('field_user'));
     cohortSelect = element(by.id('field_cohort'));
     employerSelect = element(by.id('field_employer'));
-    employerSelect = element(by.id('field_employer'));
-    cohortSelect = element(by.id('field_cohort'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -89,44 +87,6 @@ export class UserProfileUpdatePage {
 
     async getUserSelectedOption() {
         return this.userSelect.element(by.css('option:checked')).getText();
-    }
-
-    async cohortSelectLastOption() {
-        await this.cohortSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
-    }
-
-    async cohortSelectOption(option) {
-        await this.cohortSelect.sendKeys(option);
-    }
-
-    getCohortSelect(): ElementFinder {
-        return this.cohortSelect;
-    }
-
-    async getCohortSelectedOption() {
-        return this.cohortSelect.element(by.css('option:checked')).getText();
-    }
-
-    async employerSelectLastOption() {
-        await this.employerSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
-    }
-
-    async employerSelectOption(option) {
-        await this.employerSelect.sendKeys(option);
-    }
-
-    getEmployerSelect(): ElementFinder {
-        return this.employerSelect;
-    }
-
-    async getEmployerSelectedOption() {
-        return this.employerSelect.element(by.css('option:checked')).getText();
     }
 
     async employerSelectLastOption() {

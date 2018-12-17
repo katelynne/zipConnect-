@@ -7,5 +7,5 @@ export interface IEmployer {
 }
 
 export class Employer implements IEmployer {
-    constructor(public id?: number, public employerId?: number, public companyName?: string, public city?: string, public state?: string) {}
+    constructor(public id?: number, public companyName?: string, public city?: string, public state?: string) {}
 }

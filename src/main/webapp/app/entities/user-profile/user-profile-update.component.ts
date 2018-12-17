@@ -26,10 +26,6 @@ export class UserProfileUpdateComponent implements OnInit {
 
     employers: IEmployer[];
 
-    employers: IEmployer[];
-
-    cohorts: ICohort[];
-
     constructor(
         private jhiAlertService: JhiAlertService,
         private userProfileService: UserProfileService,

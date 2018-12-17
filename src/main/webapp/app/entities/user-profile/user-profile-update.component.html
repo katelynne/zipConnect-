@@ -38,20 +38,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.cohort" for="field_cohort">Cohort</label>
-                    <select class="form-control" id="field_cohort" name="cohort" [(ngModel)]="userProfile.cohort">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="cohortOption.id === userProfile.cohort?.id ? userProfile.cohort : cohortOption" *ngFor="let cohortOption of cohorts; trackBy: trackCohortById">{{cohortOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.employer" for="field_employer">Employer</label>
-                    <select class="form-control" id="field_employer" name="employer" [(ngModel)]="userProfile.employer">
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="employerOption.id === userProfile.employer?.id ? userProfile.employer : employerOption" *ngFor="let employerOption of employers; trackBy: trackEmployerById">{{employerOption.id}}</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="form-control-label" jhiTranslate="zipConnectApp.userProfile.employer" for="field_employer">Employer</label>
                     <select class="form-control" id="field_employer" name="employer" [(ngModel)]="userProfile.employer" >
                         <option [ngValue]="null"></option>

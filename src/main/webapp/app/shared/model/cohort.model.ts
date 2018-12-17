@@ -5,5 +5,5 @@ export interface ICohort {
 }
 
 export class Cohort implements ICohort {
-    constructor(public id?: number, public cohortId?: number, public gradDate?: string) {}
+    constructor(public id?: number, public gradDate?: string) {}
 }

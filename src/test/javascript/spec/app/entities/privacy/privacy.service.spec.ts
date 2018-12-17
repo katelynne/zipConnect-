@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(PrivacyService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Privacy(0, 0, false, false, false);
+            elemDefault = new Privacy(0, false, false, false);
         });
 
         describe('Service methods', async () => {

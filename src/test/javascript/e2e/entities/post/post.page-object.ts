@@ -32,7 +32,6 @@ export class PostUpdatePage {
     likesInput = element(by.id('field_likes'));
     posterSelect = element(by.id('field_poster'));
     privacySettingSelect = element(by.id('field_privacySetting'));
-    posterSelect = element(by.id('field_poster'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
@@ -77,18 +76,6 @@ export class PostUpdatePage {
             .click();
     }
 
-    async posterSelectOption(option) {
-        await this.posterSelect.sendKeys(option);
-    }
-
-    getPosterSelect(): ElementFinder {
-        return this.posterSelect;
-    }
-
-    async getPosterSelectedOption() {
-        return this.posterSelect.element(by.css('option:checked')).getText();
-    }
-
     async privacySettingSelectLastOption() {
         await this.privacySettingSelect
             .all(by.tagName('option'))
@@ -106,13 +93,6 @@ export class PostUpdatePage {
 
     async getPrivacySettingSelectedOption() {
         return this.privacySettingSelect.element(by.css('option:checked')).getText();
-    }
-
-    async posterSelectLastOption() {
-        await this.posterSelect
-            .all(by.tagName('option'))
-            .last()
-            .click();
     }
 
     async posterSelectOption(option) {

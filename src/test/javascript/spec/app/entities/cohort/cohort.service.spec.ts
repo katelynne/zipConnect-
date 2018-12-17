@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(CohortService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Cohort(0, 0, 'AAAAAAA');
+            elemDefault = new Cohort(0, 'January 2019');
         });
 
         describe('Service methods', async () => {
