@@ -283,3 +283,13 @@ insert into PUBLIC.USER_PROFILE (first_name, last_name, user_stack, user_id, emp
 insert into PUBLIC.USER_PROFILE (first_name, last_name, user_stack, user_id, employer_id, cohort_id) values ('Claudian', 'Lynock', 'Python', 10, 4, 3);
 insert into PUBLIC.USER_PROFILE (first_name, last_name, user_stack, user_id, employer_id, cohort_id) values ('Karney', 'Bantham', 'JavaScript', 29, 7, 9);
 
+insert into PUBLIC.COHORT (id, grad_date) values (1, '3/19/2016');
+insert into PUBLIC.COHORT (id, grad_date) values (2, '8/18/2018');
+insert into PUBLIC.COHORT (id, grad_date) values (3, '11/23/2015');
+insert into PUBLIC.COHORT (id, grad_date) values (4, '4/23/2016');
+insert into PUBLIC.COHORT (id, grad_date) values (5, '8/10/2017');
+insert into PUBLIC.COHORT (id, grad_date) values (6, '12/7/2018');
+insert into PUBLIC.COHORT (id, grad_date) values (7, '10/18/2016');
+insert into PUBLIC.COHORT (id, grad_date) values (8, '1/14/2015');
+insert into PUBLIC.COHORT (id, grad_date) values (9, '3/20/2016');
+insert into PUBLIC.COHORT (id, grad_date) values (10, '2/20/2015');

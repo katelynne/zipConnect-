@@ -43,15 +43,16 @@ spring:
         serialization:
             indent-output: true
     datasource:
-        type: com.zaxxer.hikari.HikariDataSource
+#        type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:h2:mem:zipconnect;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
         username: ZipConnect
         password:
         hikari:
             auto-commit: false
+        platform: h2
     h2:
         console:
-            enabled: false
+            enabled: true
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedH2Dialect
         database: H2
@@ -66,6 +67,8 @@ spring:
             hibernate.cache.hazelcast.instance_name: ZipConnect
             hibernate.cache.use_minimal_puts: true
             hibernate.cache.hazelcast.use_lite_member: true
+        hibernate:
+            ddl-auto: create-drop
     liquibase:
         contexts: dev
     mail:
