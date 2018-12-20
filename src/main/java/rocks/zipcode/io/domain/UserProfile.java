@@ -104,6 +104,19 @@ public class UserProfile implements Serializable {
         this.user = user;
     }
 
+    public Employer getEmployer() {
+        return employer;
+    }
+
+    public UserProfile employer(Employer employer) {
+        this.employer = employer;
+        return this;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
+    }
+
     public Cohort getCohort() {
         return cohort;
     }
@@ -116,19 +129,7 @@ public class UserProfile implements Serializable {
     public void setCohort(Cohort cohort) {
         this.cohort = cohort;
     }
-
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
-    }
-
-    public Employer getEmployer() {
-        return employer;
-    }
-
-    public UserProfile employer(Employer employer) {
-        this.employer = employer;
-        return this;
-    }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {

@@ -2,10 +2,6 @@
     "name": "Employer",
     "fields": [
         {
-            "fieldName": "employerId",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "companyName",
             "fieldType": "String"
         },

@@ -22,10 +22,6 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="employer_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <column name="company_name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>

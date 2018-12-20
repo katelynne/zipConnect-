@@ -2,10 +2,6 @@
     "name": "Privacy",
     "fields": [
         {
-            "fieldName": "privacyId",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "publicView",
             "fieldType": "Boolean"
         },

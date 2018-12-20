@@ -7,10 +7,10 @@ import { JhiAlertService } from 'ng-jhipster';
 import { IUserProfile } from 'app/shared/model/user-profile.model';
 import { UserProfileService } from './user-profile.service';
 import { IUser, UserService } from 'app/core';
-import { ICohort } from 'app/shared/model/cohort.model';
-import { CohortService } from 'app/entities/cohort';
 import { IEmployer } from 'app/shared/model/employer.model';
 import { EmployerService } from 'app/entities/employer';
+import { ICohort } from 'app/shared/model/cohort.model';
+import { CohortService } from 'app/entities/cohort';
 
 @Component({
     selector: 'jhi-user-profile-update',
@@ -22,16 +22,16 @@ export class UserProfileUpdateComponent implements OnInit {
 
     users: IUser[];
 
-    cohorts: ICohort[];
-
     employers: IEmployer[];
+
+    cohorts: ICohort[];
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private userProfileService: UserProfileService,
         private userService: UserService,
-        private cohortService: CohortService,
         private employerService: EmployerService,
+        private cohortService: CohortService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -43,36 +43,6 @@ export class UserProfileUpdateComponent implements OnInit {
         this.userService.query().subscribe(
             (res: HttpResponse<IUser[]>) => {
                 this.users = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.cohortService.query({ filter: 'userprofile-is-null' }).subscribe(
-            (res: HttpResponse<ICohort[]>) => {
-                if (!this.userProfile.cohort || !this.userProfile.cohort.id) {
-                    this.cohorts = res.body;
-                } else {
-                    this.cohortService.find(this.userProfile.cohort.id).subscribe(
-                        (subRes: HttpResponse<ICohort>) => {
-                            this.cohorts = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
-        this.employerService.query({ filter: 'userprofile-is-null' }).subscribe(
-            (res: HttpResponse<IEmployer[]>) => {
-                if (!this.userProfile.employer || !this.userProfile.employer.id) {
-                    this.employers = res.body;
-                } else {
-                    this.employerService.find(this.userProfile.employer.id).subscribe(
-                        (subRes: HttpResponse<IEmployer>) => {
-                            this.employers = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -124,11 +94,11 @@ export class UserProfileUpdateComponent implements OnInit {
         return item.id;
     }
 
-    trackCohortById(index: number, item: ICohort) {
+    trackEmployerById(index: number, item: IEmployer) {
         return item.id;
     }
 
-    trackEmployerById(index: number, item: IEmployer) {
+    trackCohortById(index: number, item: ICohort) {
         return item.id;
     }
 }

@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(CohortService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Cohort(0, 'January 2019');
+            elemDefault = new Cohort(0, 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -55,7 +55,6 @@ describe('Service Tests', () => {
             it('should update a Cohort', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        cohortId: 1,
                         gradDate: 'BBBBBB'
                     },
                     elemDefault
@@ -73,7 +72,6 @@ describe('Service Tests', () => {
             it('should return a list of Cohort', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        cohortId: 1,
                         gradDate: 'BBBBBB'
                     },
                     elemDefault

@@ -15,7 +15,6 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="zipConnectApp.employer.employerId">Employer Id</span></th>
             <th><span jhiTranslate="zipConnectApp.employer.companyName">Company Name</span></th>
             <th><span jhiTranslate="zipConnectApp.employer.city">City</span></th>
             <th><span jhiTranslate="zipConnectApp.employer.state">State</span></th>
@@ -25,7 +24,6 @@
             <tbody>
             <tr *ngFor="let employer of employers ;trackBy: trackId">
                 <td><a [routerLink]="['/employer', employer.id, 'view' ]">{{employer.id}}</a></td>
-                <td>{{employer.employerId}}</td>
                 <td>{{employer.companyName}}</td>
                 <td>{{employer.city}}</td>
                 <td>{{employer.state}}</td>

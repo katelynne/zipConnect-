@@ -26,21 +26,12 @@ export class EmployerUpdatePage {
     pageTitle = element(by.id('jhi-employer-heading'));
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
-    employerIdInput = element(by.id('field_employerId'));
     companyNameInput = element(by.id('field_companyName'));
     cityInput = element(by.id('field_city'));
     stateInput = element(by.id('field_state'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
-    }
-
-    async setEmployerIdInput(employerId) {
-        await this.employerIdInput.sendKeys(employerId);
-    }
-
-    async getEmployerIdInput() {
-        return this.employerIdInput.getAttribute('value');
     }
 
     async setCompanyNameInput(companyName) {

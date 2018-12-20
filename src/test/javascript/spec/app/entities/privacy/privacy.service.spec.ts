@@ -55,7 +55,6 @@ describe('Service Tests', () => {
             it('should update a Privacy', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        privacyId: 1,
                         publicView: true,
                         cohortView: true,
                         employerView: true
@@ -75,7 +74,6 @@ describe('Service Tests', () => {
             it('should return a list of Privacy', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        privacyId: 1,
                         publicView: true,
                         cohortView: true,
                         employerView: true

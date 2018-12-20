@@ -38,8 +38,7 @@ describe('Cohort e2e test', () => {
         const nbButtonsBeforeCreate = await cohortComponentsPage.countDeleteButtons();
 
         await cohortComponentsPage.clickOnCreateButton();
-        await promise.all([cohortUpdatePage.setCohortIdInput('5'), cohortUpdatePage.setGradDateInput('gradDate')]);
-        expect(await cohortUpdatePage.getCohortIdInput()).to.eq('5');
+        await promise.all([cohortUpdatePage.setGradDateInput('gradDate')]);
         expect(await cohortUpdatePage.getGradDateInput()).to.eq('gradDate');
         await cohortUpdatePage.save();
         expect(await cohortUpdatePage.getSaveButton().isPresent()).to.be.false;

@@ -5,10 +5,6 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="zipConnectApp.userProfile.profileId">Profile Id</span></dt>
-                <dd>
-                    <span>{{userProfile.profileId}}</span>
-                </dd>
                 <dt><span jhiTranslate="zipConnectApp.userProfile.firstName">First Name</span></dt>
                 <dd>
                     <span>{{userProfile.firstName}}</span>
@@ -24,18 +20,6 @@
                 <dt><span jhiTranslate="zipConnectApp.userProfile.user">User</span></dt>
                 <dd>
                     {{userProfile.user?.id}}
-                </dd>
-                <dt><span jhiTranslate="zipConnectApp.userProfile.cohort">Cohort</span></dt>
-                <dd>
-                    <div *ngIf="userProfile.cohort">
-                        <a [routerLink]="['/cohort', userProfile.cohort?.id, 'view']">{{userProfile.cohort?.id}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="zipConnectApp.userProfile.employer">Employer</span></dt>
-                <dd>
-                    <div *ngIf="userProfile.employer">
-                        <a [routerLink]="['/employer', userProfile.employer?.id, 'view']">{{userProfile.employer?.id}}</a>
-                    </div>
                 </dd>
                 <dt><span jhiTranslate="zipConnectApp.userProfile.employer">Employer</span></dt>
                 <dd>

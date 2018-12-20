@@ -26,24 +26,15 @@ export class UserProfileUpdatePage {
     pageTitle = element(by.id('jhi-user-profile-heading'));
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
-    profileIdInput = element(by.id('field_profileId'));
     firstNameInput = element(by.id('field_firstName'));
     lastNameInput = element(by.id('field_lastName'));
     userStackInput = element(by.id('field_userStack'));
     userSelect = element(by.id('field_user'));
-    cohortSelect = element(by.id('field_cohort'));
     employerSelect = element(by.id('field_employer'));
+    cohortSelect = element(by.id('field_cohort'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
-    }
-
-    async setProfileIdInput(profileId) {
-        await this.profileIdInput.sendKeys(profileId);
-    }
-
-    async getProfileIdInput() {
-        return this.profileIdInput.getAttribute('value');
     }
 
     async setFirstNameInput(firstName) {

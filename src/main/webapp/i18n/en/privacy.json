@@ -15,7 +15,6 @@
             "detail": {
                 "title": "Privacy"
             },
-            "privacyId": "Privacy Id",
             "publicView": "Public View",
             "cohortView": "Cohort View",
             "employerView": "Employer View"

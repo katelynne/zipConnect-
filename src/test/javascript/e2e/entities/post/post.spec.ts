@@ -39,15 +39,12 @@ describe('Post e2e test', () => {
 
         await postComponentsPage.clickOnCreateButton();
         await promise.all([
-            postUpdatePage.setPostIdInput('5'),
             postUpdatePage.setTimestampInput('2000-12-31'),
             postUpdatePage.setContentInput('content'),
             postUpdatePage.setLikesInput('likes'),
             postUpdatePage.posterSelectLastOption(),
-            postUpdatePage.privacySettingSelectLastOption(),
-            postUpdatePage.posterSelectLastOption()
+            postUpdatePage.privacySettingSelectLastOption()
         ]);
-        expect(await postUpdatePage.getPostIdInput()).to.eq('5');
         expect(await postUpdatePage.getTimestampInput()).to.eq('2000-12-31');
         expect(await postUpdatePage.getContentInput()).to.eq('content');
         expect(await postUpdatePage.getLikesInput()).to.eq('likes');

@@ -5,10 +5,6 @@
             <hr>
             <jhi-alert-error></jhi-alert-error>
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="zipConnectApp.post.postId">Post Id</span></dt>
-                <dd>
-                    <span>{{post.postId}}</span>
-                </dd>
                 <dt><span jhiTranslate="zipConnectApp.post.timestamp">Timestamp</span></dt>
                 <dd>
                     <span>{{post.timestamp}}</span>
@@ -23,17 +19,15 @@
                 </dd>
                 <dt><span jhiTranslate="zipConnectApp.post.poster">Poster</span></dt>
                 <dd>
-                    {{post.poster?.id}}
+                    <div *ngIf="post.poster">
+                        <a [routerLink]="['/user-profile', post.poster?.id, 'view']">{{post.poster?.id}}</a>
+                    </div>
                 </dd>
                 <dt><span jhiTranslate="zipConnectApp.post.privacySetting">Privacy Setting</span></dt>
                 <dd>
                     <div *ngIf="post.privacySetting">
                         <a [routerLink]="['/privacy', post.privacySetting?.id, 'view']">{{post.privacySetting?.id}}</a>
                     </div>
-                </dd>
-                <dt><span jhiTranslate="zipConnectApp.post.poster">Poster</span></dt>
-                <dd>
-                    {{post.poster?.id}}
                 </dd>
             </dl>
 

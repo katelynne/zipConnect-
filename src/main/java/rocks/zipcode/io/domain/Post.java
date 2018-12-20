@@ -33,12 +33,13 @@ public class Post implements Serializable {
     @Column(name = "likes")
     private String likes;
 
-    @OneToOne    @JoinColumn(unique = true)
-    private Privacy privacySetting;
+    @ManyToOne
+    @JsonIgnoreProperties("")
+    private UserProfile poster;
 
     @ManyToOne
     @JsonIgnoreProperties("")
-    private User poster;
+    private Privacy privacySetting;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -88,17 +89,17 @@ public class Post implements Serializable {
         this.likes = likes;
     }
 
-    public User getPoster() {
+    public UserProfile getPoster() {
         return poster;
     }
 
-    public Post poster(User user) {
-        this.poster = user;
+    public Post poster(UserProfile userProfile) {
+        this.poster = userProfile;
         return this;
     }
 
-    public void setPoster(User user) {
-        this.poster = user;
+    public void setPoster(UserProfile userProfile) {
+        this.poster = userProfile;
     }
 
     public Privacy getPrivacySetting() {
@@ -113,7 +114,7 @@ public class Post implements Serializable {
     public void setPrivacySetting(Privacy privacy) {
         this.privacySetting = privacy;
     }
-
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {

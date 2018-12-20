@@ -26,7 +26,6 @@ export class PostUpdatePage {
     pageTitle = element(by.id('jhi-post-heading'));
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
-    postIdInput = element(by.id('field_postId'));
     timestampInput = element(by.id('field_timestamp'));
     contentInput = element(by.id('field_content'));
     likesInput = element(by.id('field_likes'));
@@ -35,14 +34,6 @@ export class PostUpdatePage {
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
-    }
-
-    async setPostIdInput(postId) {
-        await this.postIdInput.sendKeys(postId);
-    }
-
-    async getPostIdInput() {
-        return this.postIdInput.getAttribute('value');
     }
 
     async setTimestampInput(timestamp) {
@@ -76,6 +67,18 @@ export class PostUpdatePage {
             .click();
     }
 
+    async posterSelectOption(option) {
+        await this.posterSelect.sendKeys(option);
+    }
+
+    getPosterSelect(): ElementFinder {
+        return this.posterSelect;
+    }
+
+    async getPosterSelectedOption() {
+        return this.posterSelect.element(by.css('option:checked')).getText();
+    }
+
     async privacySettingSelectLastOption() {
         await this.privacySettingSelect
             .all(by.tagName('option'))
@@ -93,18 +96,6 @@ export class PostUpdatePage {
 
     async getPrivacySettingSelectedOption() {
         return this.privacySettingSelect.element(by.css('option:checked')).getText();
-    }
-
-    async posterSelectOption(option) {
-        await this.posterSelect.sendKeys(option);
-    }
-
-    getPosterSelect(): ElementFinder {
-        return this.posterSelect;
-    }
-
-    async getPosterSelectedOption() {
-        return this.posterSelect.element(by.css('option:checked')).getText();
     }
 
     async save() {

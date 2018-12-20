@@ -39,12 +39,10 @@ describe('Employer e2e test', () => {
 
         await employerComponentsPage.clickOnCreateButton();
         await promise.all([
-            employerUpdatePage.setEmployerIdInput('5'),
             employerUpdatePage.setCompanyNameInput('companyName'),
             employerUpdatePage.setCityInput('city'),
             employerUpdatePage.setStateInput('state')
         ]);
-        expect(await employerUpdatePage.getEmployerIdInput()).to.eq('5');
         expect(await employerUpdatePage.getCompanyNameInput()).to.eq('companyName');
         expect(await employerUpdatePage.getCityInput()).to.eq('city');
         expect(await employerUpdatePage.getStateInput()).to.eq('state');

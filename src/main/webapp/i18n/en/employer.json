@@ -15,7 +15,6 @@
             "detail": {
                 "title": "Employer"
             },
-            "employerId": "Employer Id",
             "companyName": "Company Name",
             "city": "City",
             "state": "State"

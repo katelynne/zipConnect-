@@ -14,18 +14,6 @@
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
 
-        <addForeignKeyConstraint baseColumnNames="cohort_id"
-                                 baseTableName="user_profile"
-                                 constraintName="fk_user_profile_cohort_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="cohort"/>
-
-        <addForeignKeyConstraint baseColumnNames="employer_id"
-                                 baseTableName="user_profile"
-                                 constraintName="fk_user_profile_employer_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="employer"/>
-
         <addForeignKeyConstraint baseColumnNames="employer_id"
                                  baseTableName="user_profile"
                                  constraintName="fk_user_profile_employer_id"

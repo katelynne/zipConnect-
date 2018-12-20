@@ -1,5 +1,5 @@
 import { Moment } from 'moment';
-import { IUser } from 'app/core/user/user.model';
+import { IUserProfile } from 'app/shared/model//user-profile.model';
 import { IPrivacy } from 'app/shared/model//privacy.model';
 
 export interface IPost {
@@ -7,7 +7,7 @@ export interface IPost {
     timestamp?: Moment;
     content?: string;
     likes?: string;
-    poster?: IUser;
+    poster?: IUserProfile;
     privacySetting?: IPrivacy;
 }
 
@@ -17,7 +17,7 @@ export class Post implements IPost {
         public timestamp?: Moment,
         public content?: string,
         public likes?: string,
-        public poster?: IUser,
+        public poster?: IUserProfile,
         public privacySetting?: IPrivacy
     ) {}
 }
