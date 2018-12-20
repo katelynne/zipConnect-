@@ -55,7 +55,6 @@ describe('Service Tests', () => {
             it('should update a Employer', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        employerId: 1,
                         companyName: 'BBBBBB',
                         city: 'BBBBBB',
                         state: 'BBBBBB'
@@ -75,7 +74,6 @@ describe('Service Tests', () => {
             it('should return a list of Employer', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        employerId: 1,
                         companyName: 'BBBBBB',
                         city: 'BBBBBB',
                         state: 'BBBBBB'

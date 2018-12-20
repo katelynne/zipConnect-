@@ -55,7 +55,6 @@ describe('Service Tests', () => {
             it('should update a UserProfile', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        profileId: 1,
                         firstName: 'BBBBBB',
                         lastName: 'BBBBBB',
                         userStack: 'BBBBBB'
@@ -75,7 +74,6 @@ describe('Service Tests', () => {
             it('should return a list of UserProfile', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        profileId: 1,
                         firstName: 'BBBBBB',
                         lastName: 'BBBBBB',
                         userStack: 'BBBBBB'

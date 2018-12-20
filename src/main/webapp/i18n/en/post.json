@@ -15,13 +15,11 @@
             "detail": {
                 "title": "Post"
             },
-            "postId": "Post Id",
             "timestamp": "Timestamp",
             "content": "Content",
             "likes": "Likes",
             "poster": "Poster",
-            "privacySetting": "Privacy Setting",
-            "poster": "Poster"
+            "privacySetting": "Privacy Setting"
         }
     }
 }

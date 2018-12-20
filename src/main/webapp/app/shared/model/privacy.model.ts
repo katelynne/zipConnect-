@@ -1,6 +1,5 @@
 export interface IPrivacy {
     id?: number;
-    privacyId?: number;
     publicView?: boolean;
     cohortView?: boolean;
     employerView?: boolean;

@@ -1,35 +1,26 @@
-entity User {
-	userId Long,
-}
-
 entity UserProfile {
-	profileId Long,
     firstName String,
     lastName String,
     userStack String,
 }
 
 entity Cohort {
-	cohortId Double,
     gradDate String
 }
 
 entity Employer {
-	employerId Long,
     companyName String,
     city String,
     state String
 }
 
 entity Post {
-	postId Long,
     timestamp LocalDate,
     content String,
     likes String,
 }
 
 entity Privacy {
-	privacyId Long,
 	publicView Boolean,
     cohortView Boolean,
     employerView Boolean
@@ -41,7 +32,7 @@ relationship ManyToOne {
 }
 
 relationship ManyToOne {
-    Post{poster} to User
+    Post{poster} to UserProfile
 }
 
 relationship ManyToOne {
@@ -52,19 +43,7 @@ relationship OneToOne {
 	UserProfile{user} to User
 }
 
-relationship OneToOne {
-    Post{poster} to User
-}
-
-relationship OneToOne {
-	UserProfile{cohort} to Cohort
-}
-
-relationship OneToOne {
-	UserProfile{employer} to Employer
-}
-
-relationship OneToOne {
+relationship ManyToOne {
 	Post{privacySetting} to Privacy
 }
 

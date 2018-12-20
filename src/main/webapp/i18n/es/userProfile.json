@@ -15,13 +15,10 @@
             "detail": {
                 "title": "User Profile"
             },
-            "profileId": "Profile Id",
             "firstName": "First Name",
             "lastName": "Last Name",
             "userStack": "User Stack",
             "user": "User",
-            "cohort": "Cohort",
-            "employer": "Employer",
             "employer": "Employer",
             "cohort": "Cohort"
         }

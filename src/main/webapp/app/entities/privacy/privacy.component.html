@@ -15,7 +15,6 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="zipConnectApp.privacy.privacyId">Privacy Id</span></th>
             <th><span jhiTranslate="zipConnectApp.privacy.publicView">Public View</span></th>
             <th><span jhiTranslate="zipConnectApp.privacy.cohortView">Cohort View</span></th>
             <th><span jhiTranslate="zipConnectApp.privacy.employerView">Employer View</span></th>
@@ -25,7 +24,6 @@
             <tbody>
             <tr *ngFor="let privacy of privacies ;trackBy: trackId">
                 <td><a [routerLink]="['/privacy', privacy.id, 'view' ]">{{privacy.id}}</a></td>
-                <td>{{privacy.privacyId}}</td>
                 <td>{{privacy.publicView}}</td>
                 <td>{{privacy.cohortView}}</td>
                 <td>{{privacy.employerView}}</td>

@@ -26,21 +26,12 @@ export class PrivacyUpdatePage {
     pageTitle = element(by.id('jhi-privacy-heading'));
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
-    privacyIdInput = element(by.id('field_privacyId'));
     publicViewInput = element(by.id('field_publicView'));
     cohortViewInput = element(by.id('field_cohortView'));
     employerViewInput = element(by.id('field_employerView'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
-    }
-
-    async setPrivacyIdInput(privacyId) {
-        await this.privacyIdInput.sendKeys(privacyId);
-    }
-
-    async getPrivacyIdInput() {
-        return this.privacyIdInput.getAttribute('value');
     }
 
     getPublicViewInput() {

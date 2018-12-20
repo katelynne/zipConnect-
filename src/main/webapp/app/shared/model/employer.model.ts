@@ -1,6 +1,5 @@
 export interface IEmployer {
     id?: number;
-    employerId?: number;
     companyName?: string;
     city?: string;
     state?: string;

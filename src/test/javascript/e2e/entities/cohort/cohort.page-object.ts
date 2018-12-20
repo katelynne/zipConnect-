@@ -26,19 +26,10 @@ export class CohortUpdatePage {
     pageTitle = element(by.id('jhi-cohort-heading'));
     saveButton = element(by.id('save-entity'));
     cancelButton = element(by.id('cancel-save'));
-    cohortIdInput = element(by.id('field_cohortId'));
     gradDateInput = element(by.id('field_gradDate'));
 
     async getPageTitle() {
         return this.pageTitle.getAttribute('jhiTranslate');
-    }
-
-    async setCohortIdInput(cohortId) {
-        await this.cohortIdInput.sendKeys(cohortId);
-    }
-
-    async getCohortIdInput() {
-        return this.cohortIdInput.getAttribute('value');
     }
 
     async setGradDateInput(gradDate) {

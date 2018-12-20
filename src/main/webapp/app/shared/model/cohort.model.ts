@@ -1,6 +1,5 @@
 export interface ICohort {
     id?: number;
-    cohortId?: number;
     gradDate?: string;
 }
 

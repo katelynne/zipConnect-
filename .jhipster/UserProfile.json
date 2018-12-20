@@ -2,10 +2,6 @@
     "name": "UserProfile",
     "fields": [
         {
-            "fieldName": "profileId",
-            "fieldType": "Long"
-        },
-        {
             "fieldName": "firstName",
             "fieldType": "String"
         },
@@ -23,22 +19,6 @@
             "relationshipType": "one-to-one",
             "relationshipName": "user",
             "otherEntityName": "user",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "userProfile"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "cohort",
-            "otherEntityName": "cohort",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "userProfile"
-        },
-        {
-            "relationshipType": "one-to-one",
-            "relationshipName": "employer",
-            "otherEntityName": "employer",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "userProfile"

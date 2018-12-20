@@ -15,13 +15,10 @@
             <thead>
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
-            <th><span jhiTranslate="zipConnectApp.userProfile.profileId">Profile Id</span></th>
             <th><span jhiTranslate="zipConnectApp.userProfile.firstName">First Name</span></th>
             <th><span jhiTranslate="zipConnectApp.userProfile.lastName">Last Name</span></th>
             <th><span jhiTranslate="zipConnectApp.userProfile.userStack">User Stack</span></th>
             <th><span jhiTranslate="zipConnectApp.userProfile.user">User</span></th>
-            <th><span jhiTranslate="zipConnectApp.userProfile.cohort">Cohort</span></th>
-            <th><span jhiTranslate="zipConnectApp.userProfile.employer">Employer</span></th>
             <th><span jhiTranslate="zipConnectApp.userProfile.employer">Employer</span></th>
             <th><span jhiTranslate="zipConnectApp.userProfile.cohort">Cohort</span></th>
             <th></th>
@@ -30,22 +27,11 @@
             <tbody>
             <tr *ngFor="let userProfile of userProfiles ;trackBy: trackId">
                 <td><a [routerLink]="['/user-profile', userProfile.id, 'view' ]">{{userProfile.id}}</a></td>
-                <td>{{userProfile.profileId}}</td>
                 <td>{{userProfile.firstName}}</td>
                 <td>{{userProfile.lastName}}</td>
                 <td>{{userProfile.userStack}}</td>
                 <td>
                     {{userProfile.user?.id}}
-                </td>
-                <td>
-                    <div *ngIf="userProfile.cohort">
-                        <a [routerLink]="['../cohort', userProfile.cohort?.id, 'view' ]" >{{userProfile.cohort?.id}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="userProfile.employer">
-                        <a [routerLink]="['../employer', userProfile.employer?.id, 'view' ]" >{{userProfile.employer?.id}}</a>
-                    </div>
                 </td>
                 <td>
                     <div *ngIf="userProfile.employer">

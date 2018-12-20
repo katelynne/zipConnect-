@@ -2,10 +2,6 @@
     "name": "Cohort",
     "fields": [
         {
-            "fieldName": "cohortId",
-            "fieldType": "Double"
-        },
-        {
             "fieldName": "gradDate",
             "fieldType": "String"
         }

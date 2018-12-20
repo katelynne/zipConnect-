@@ -38,8 +38,7 @@ describe('Privacy e2e test', () => {
         const nbButtonsBeforeCreate = await privacyComponentsPage.countDeleteButtons();
 
         await privacyComponentsPage.clickOnCreateButton();
-        await promise.all([privacyUpdatePage.setPrivacyIdInput('5')]);
-        expect(await privacyUpdatePage.getPrivacyIdInput()).to.eq('5');
+        await promise.all([]);
         const selectedPublicView = privacyUpdatePage.getPublicViewInput();
         if (await selectedPublicView.isSelected()) {
             await privacyUpdatePage.getPublicViewInput().click();

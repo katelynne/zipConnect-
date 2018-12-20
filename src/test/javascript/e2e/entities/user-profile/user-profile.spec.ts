@@ -39,17 +39,13 @@ describe('UserProfile e2e test', () => {
 
         await userProfileComponentsPage.clickOnCreateButton();
         await promise.all([
-            userProfileUpdatePage.setProfileIdInput('5'),
             userProfileUpdatePage.setFirstNameInput('firstName'),
             userProfileUpdatePage.setLastNameInput('lastName'),
             userProfileUpdatePage.setUserStackInput('userStack'),
             userProfileUpdatePage.userSelectLastOption(),
-            userProfileUpdatePage.cohortSelectLastOption(),
-            userProfileUpdatePage.employerSelectLastOption(),
             userProfileUpdatePage.employerSelectLastOption(),
             userProfileUpdatePage.cohortSelectLastOption()
         ]);
-        expect(await userProfileUpdatePage.getProfileIdInput()).to.eq('5');
         expect(await userProfileUpdatePage.getFirstNameInput()).to.eq('firstName');
         expect(await userProfileUpdatePage.getLastNameInput()).to.eq('lastName');
         expect(await userProfileUpdatePage.getUserStackInput()).to.eq('userStack');

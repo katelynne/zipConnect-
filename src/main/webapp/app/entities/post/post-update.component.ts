@@ -7,7 +7,8 @@ import { JhiAlertService } from 'ng-jhipster';
 
 import { IPost } from 'app/shared/model/post.model';
 import { PostService } from './post.service';
-import { IUser, UserService } from 'app/core';
+import { IUserProfile } from 'app/shared/model/user-profile.model';
+import { UserProfileService } from 'app/entities/user-profile';
 import { IPrivacy } from 'app/shared/model/privacy.model';
 import { PrivacyService } from 'app/entities/privacy';
 
@@ -19,15 +20,15 @@ export class PostUpdateComponent implements OnInit {
     post: IPost;
     isSaving: boolean;
 
-    users: IUser[];
+    userprofiles: IUserProfile[];
 
-    privacysettings: IPrivacy[];
+    privacies: IPrivacy[];
     timestampDp: any;
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private postService: PostService,
-        private userService: UserService,
+        private userProfileService: UserProfileService,
         private privacyService: PrivacyService,
         private activatedRoute: ActivatedRoute
     ) {}
@@ -37,24 +38,15 @@ export class PostUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ post }) => {
             this.post = post;
         });
-        this.userService.query().subscribe(
-            (res: HttpResponse<IUser[]>) => {
-                this.users = res.body;
+        this.userProfileService.query().subscribe(
+            (res: HttpResponse<IUserProfile[]>) => {
+                this.userprofiles = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.privacyService.query({ filter: 'post-is-null' }).subscribe(
+        this.privacyService.query().subscribe(
             (res: HttpResponse<IPrivacy[]>) => {
-                if (!this.post.privacySetting || !this.post.privacySetting.id) {
-                    this.privacysettings = res.body;
-                } else {
-                    this.privacyService.find(this.post.privacySetting.id).subscribe(
-                        (subRes: HttpResponse<IPrivacy>) => {
-                            this.privacysettings = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.privacies = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -90,7 +82,7 @@ export class PostUpdateComponent implements OnInit {
         this.jhiAlertService.error(errorMessage, null, null);
     }
 
-    trackUserById(index: number, item: IUser) {
+    trackUserProfileById(index: number, item: IUserProfile) {
         return item.id;
     }
 

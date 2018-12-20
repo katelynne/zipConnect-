@@ -70,7 +70,6 @@ describe('Service Tests', () => {
             it('should update a Post', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        postId: 1,
                         timestamp: currentDate.format(DATE_FORMAT),
                         content: 'BBBBBB',
                         likes: 'BBBBBB'
@@ -95,7 +94,6 @@ describe('Service Tests', () => {
             it('should return a list of Post', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        postId: 1,
                         timestamp: currentDate.format(DATE_FORMAT),
                         content: 'BBBBBB',
                         likes: 'BBBBBB'
